@@ -29,7 +29,7 @@
   transition: opacity 1.3s ease-in-out, transform 1.3s ease-in-out;
 }
 .main_wrap .main_img {
-  width: 60%;
+  width: 55%;
   overflow: hidden;
   opacity: 0;
   transform: translateX(80rem);
@@ -64,16 +64,85 @@
   align-items: center;
   justify-content: center;
   height: 80vh;
+  position: relative;
+}
+.info_wrap::before, .info_wrap::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+}
+.info_wrap::before {
+  top: 150px;
+  right: 20px;
+  width: 42px;
+  height: 42px;
+  background: url("../images/box30.png");
+  opacity: 0;
+  animation: spin 5s 1.5s infinite;
+}
+.info_wrap::after {
+  top: 80px;
+  left: 20px;
+  width: 42px;
+  height: 42px;
+  background: url("../images/box30.png");
+  opacity: 0;
+  animation: spin 8s 1s infinite;
+}
+.info_wrap img {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+  animation: right_move 1.5s ease-in-out forwards;
+}
+.info_wrap .info_text {
+  position: relative;
+}
+.info_wrap .info_text::before, .info_wrap .info_text::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+}
+.info_wrap .info_text::before {
+  top: -80px;
+  right: 0;
+  width: 161px;
+  height: 52px;
+  background: url("../images/cloud1.png") no-repeat;
+  transform: translateX(-161px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+  animation: left_move 1.5s ease-in-out forwards, cloud 6s infinite linear;
+}
+.info_wrap .info_text::after {
+  top: -30px;
+  left: 0;
+  width: 42px;
+  height: 42px;
+  background: url("../images/box30_2.png");
+  opacity: 0;
+  animation: spin 6s infinite;
 }
 .info_wrap .info_text .tit {
   font-size: 3.6rem;
   font-weight: 700;
   margin-bottom: 5rem;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 1s ease, transform 1s ease;
+  animation: left_move 1s ease-in-out forwards;
 }
 .info_wrap .info_text p {
   font-size: 1.8rem;
   font-weight: 400;
   line-height: 1.4;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+  animation: left_move 1.5s ease-in-out forwards;
+}
+.info_wrap span {
+  opacity: 0;
+  animation: spin 6s 2.2s infinite;
 }
 
 .process_container {
@@ -83,6 +152,13 @@
   font-size: 3.4rem;
   font-weight: 600;
   margin-bottom: 12rem;
+  opacity: 0;
+  transform: translateY(150px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.process_container h2.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 .process_container .process {
   display: flex;
@@ -98,8 +174,23 @@
   background: #fafafa;
   border-radius: 15px;
   box-sizing: border-box;
-  transition: background-color 0.3s ease;
+  opacity: 0;
+  transform: translateY(150px);
+  transition: opacity 1s ease, transform 1s ease, background-color 0.3s ease;
   cursor: pointer;
+}
+.process_container .process .process_item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.process_container .process .process_item:nth-child(2) {
+  transition: opacity 1.4s ease, transform 1.4s ease;
+}
+.process_container .process .process_item:nth-child(3) {
+  transition: opacity 1.8s ease, transform 1.8s ease;
+}
+.process_container .process .process_item:nth-child(4) {
+  transition: opacity 2.2s ease, transform 2.2s ease;
 }
 .process_container .process .process_item .process_number {
   display: block;
@@ -153,6 +244,30 @@
   100% {
     transform: translateX(0);
     opacity: 1;
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(360deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+@keyframes cloud {
+  0% {
+    transform: translate(0);
+  }
+  50% {
+    transform: translate(5%, 20%);
+  }
+  100% {
+    transform: translate(0);
   }
 }
 @media screen and (max-width: 1024px) {
@@ -244,12 +359,21 @@
     padding: 1.8rem 6rem;
   }
 
+  .info_wrap::before, .info_wrap::after {
+    display: none;
+  }
   .info_wrap img {
     width: 100%;
   }
   .info_wrap .info_text .tit {
     font-size: 3.3rem;
     line-height: 1.2;
+  }
+  .info_wrap .info_text::before, .info_wrap .info_text::after {
+    display: none;
+  }
+  .info_wrap span {
+    display: none;
   }
 
   .process_container {

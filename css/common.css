@@ -14,14 +14,14 @@
 
 .container {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1520px;
   margin: 0px auto;
   box-sizing: border-box;
   padding: 4rem 0;
 }
 
 .inner {
-  max-width: 1400px;
+  max-width: 1520px;
   width: 100%;
   position: relative;
   padding: 2rem;

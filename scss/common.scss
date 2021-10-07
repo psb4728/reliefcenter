@@ -15,7 +15,7 @@
 }
 
 @mixin default_layout {
-  max-width: 1400px;
+  max-width: 1520px;
   width: 100%;
   position: relative;
   padding: 2rem;
@@ -23,7 +23,7 @@
 }
 @mixin max_layout {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1520px;
   margin: 0px auto;
   box-sizing: border-box;
 }
